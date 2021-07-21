@@ -5,7 +5,6 @@ const space = {
   'small': '4px',
   'medium': '8px',
   'large': '16px',
-  // etc.
 };
 
 export const spaces = Object.keys(space) as (keyof typeof space)[];
@@ -19,7 +18,7 @@ const responsiveStyles = createAtomicStyles({
   },
   defaultCondition: 'mobile',
   properties: {
-    display: ['none', 'flex', 'block', 'inline'],
+    display: ['none', 'flex', 'block', 'inline', 'inline-flex'],
     flexDirection: ['row', 'column'],
     justifyContent: ['stretch', 'flex-start', 'center', 'flex-end', 'space-around', 'space-between'],
     alignItems: ['stretch', 'flex-start', 'center', 'flex-end'],
@@ -56,6 +55,7 @@ const colorStyles = createAtomicStyles({
   defaultCondition: 'lightMode',
   properties: {
     color,
+    borderColor: color,
     background: color,
     // etc.
   }
@@ -63,5 +63,4 @@ const colorStyles = createAtomicStyles({
 
 export const atoms = createAtomsFn(colorStyles, responsiveStyles);
 
-// It's a good idea to export the Atoms type too
 export type Atoms = Parameters<typeof atoms>[0];
