@@ -5,14 +5,16 @@ import { createInlineTheme } from '@vanilla-extract/dynamic';
 import * as classes from './styles.css';
 import { currentValue } from './styles.css';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLInputElement> {
+interface Props extends React.ComponentProps<'input'> {
   value: number;
   min?: number;
   max?: number;
+  step?: number;
   onValueChange?: (value: number) => void;
 }
 
-export function Range({ value, min, max, onChange, onValueChange, ...props }: Props) {
+export function Range({ onChange, onValueChange, ...inputProps }: Props) {
+  const { value, min, max } = inputProps;
   const percentage = Math.abs(value - (min ?? 0)) / Math.abs((max ?? 0) - (min ?? 0));
 
   const dynamicStyles = createInlineTheme({
@@ -32,10 +34,9 @@ export function Range({ value, min, max, onChange, onValueChange, ...props }: Pr
 
   return <div className={classes.wrap}>
     <input
-      {...props}
-      value={value}
+      {...inputProps}
       type="range"
-      className={cn(classes.input, props.className)}
+      className={cn(classes.input, inputProps.className)}
       style={dynamicStyles}
       onChange={handleOnChange}
     />
