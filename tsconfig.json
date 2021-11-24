@@ -15,7 +15,8 @@
     "moduleResolution": "node",
     "declaration": true,
     "declarationDir": "dist",
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "resolveJsonModule": true
   },
   "include": ["src", ".storybook"]
 }

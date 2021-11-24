@@ -2,7 +2,8 @@ import React from 'react';
 import { ComponentMeta } from '@storybook/react';
 
 import { Box, atoms } from './Box';
-import { spaces, colors } from '../../theme/sprinkles.css';
+import { spaces } from '../../theme/sprinkles.css';
+import { colors } from '../../theme/theme.css';
 
 const props = Array.from(atoms.properties);
 
@@ -29,16 +30,9 @@ export default {
   parameters: {
     controls: {
       // Let's hide the non-atoms props since those are rarely useful in Storybook
-      include: new RegExp(`^(${props.join('|')})`)
+      include: props,
     },
   },
 } as ComponentMeta<typeof Box>;
 
 export const WithArgs = (args: any) => <Box {...args}>Content</Box>;
-
-/*
-WithArgs.args = props.reduce(
-  (all, a) => { all[a] = undefined; return all; },
-  {} as Record<SetValue<typeof atoms.properties>, any>
-);
-*/

@@ -1,30 +1,22 @@
-import { composeStyles } from '@vanilla-extract/css';
-
 import React from 'react';
-import { atoms, Atoms } from '../../theme';
+import cn from 'classnames';
 
-import * as styles from './styles.css';
+import { buttonRecipe, Variants, currentColor } from './styles.css';
+import { Color, vars } from '../../theme/theme.css';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
 
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & Variants & {
+  color: Color,
+};
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  specialProp: string;
-  variant?: keyof typeof styles.variants;
-  atomProps?: Atoms;
-  className?: string;
-}
-
-export function Button({ specialProp, children, variant, atomProps = {}, className = '', ...props }: Props) {
-  const classNames = composeStyles(
-    atoms({
-      display: 'inline-flex',
-      padding: 'medium',
-      borderColor: 'gray-700',
-      ...atomProps,
-    }),
-    styles.base,
-    variant ? styles.variants[variant] : '',
-    className,
+export function Button({ color, size, variant, ...props }: Props) {
+  const classNames = cn(
+    buttonRecipe({ size, variant }),
+    props.className,
   );
-  return <button {...props} className={classNames}>{children}</button>;
+  const style = {
+    ...props.style,
+    ...assignInlineVars({[currentColor]: vars.color[color]}),
+  }
+  return <button {...props} style={style} className={classNames} />;
 }
-

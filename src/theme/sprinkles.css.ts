@@ -1,4 +1,5 @@
-import { createAtomicStyles, createAtomsFn } from '@vanilla-extract/sprinkles';
+import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles';
+import { vars } from './theme.css';
 
 const space = {
   'none': 0,
@@ -10,7 +11,7 @@ const space = {
 export const spaces = Object.keys(space) as (keyof typeof space)[];
 export type Space = typeof spaces[number];
 
-const responsiveStyles = createAtomicStyles({
+const responsiveStyles = defineProperties({
   conditions: {
     mobile: {},
     tablet: { '@media': 'screen and (min-width: 768px)' },
@@ -36,31 +37,19 @@ const responsiveStyles = createAtomicStyles({
   }
 });
 
-const color = {
-  'blue-50': '#eff6ff',
-  'blue-100': '#dbeafe',
-  'blue-200': '#bfdbfe',
-  'gray-700': '#374151',
-  'gray-800': '#1f2937',
-  'gray-900': '#111827',
-};
-
-export const colors = Object.keys(color) as (keyof typeof color)[];
-
-const colorStyles = createAtomicStyles({
+const colorStyles = defineProperties({
   conditions: {
     lightMode: {},
     darkMode: { '@media': '(prefers-color-scheme: dark)' }
   },
   defaultCondition: 'lightMode',
   properties: {
-    color,
-    borderColor: color,
-    background: color,
-    // etc.
+    color: vars.color,
+    borderColor: vars.color,
+    background: vars.color,
   }
 });
 
-export const atoms = createAtomsFn(colorStyles, responsiveStyles);
+export const sprinkles = createSprinkles(colorStyles, responsiveStyles);
 
-export type Atoms = Parameters<typeof atoms>[0];
+export type Atoms = Parameters<typeof sprinkles>[0];

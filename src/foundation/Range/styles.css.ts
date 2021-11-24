@@ -35,7 +35,7 @@ export const input = style({
 
 
   height: '2px',
-  background: `linear-gradient(to right, ${vars.color.brand} ${currentValue}, #f0f0f0 0)`,
+  background: `linear-gradient(to right, ${vars.color['red-600']} ${currentValue}, #f0f0f0 0)`,
 
   ':focus': {
     outline: 'none',
@@ -46,8 +46,8 @@ export const input = style({
       WebkitAppearance: 'none',
       appearance: 'none',
       borderRadius: '50%',
-      border: `solid 2px ${vars.color.brand}`,
-      background: vars.color.white,
+      border: `solid 2px ${vars.color['red-600']}`,
+      background: '#fff',
       boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.2)',
       width: '16px',
       height: '16px',

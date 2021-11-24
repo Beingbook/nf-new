@@ -1,7 +1,8 @@
 import { createBox } from 'dessert-box';
 
-import { atoms } from '../../theme/sprinkles.css';
+import { sprinkles as atoms } from '../../theme/sprinkles.css';
 
-export const Box = createBox(atoms);
+export const Box = createBox({ atoms });
+
 export { atoms };
 
