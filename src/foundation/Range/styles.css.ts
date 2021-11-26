@@ -1,6 +1,6 @@
-import { createVar, style } from "@vanilla-extract/css";
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { vars } from "../../theme";
+import { createVar, style } from '@vanilla-extract/css';
+import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
+import { vars } from '../../theme';
 
 export const currentValue = createVar();
 
@@ -48,10 +48,10 @@ export const inputRecipe = recipe({
         width: '12px',
         height: '12px',
         borderRadius: '50%',
-        border: `solid 2px #fff`,
+        border: 'solid 2px #fff',
         background: `${vars.color['red-600']}`,
       },
-    }
+    },
   },
   
   variants: {
@@ -66,9 +66,9 @@ export const inputRecipe = recipe({
             width: '16px',
             height: '16px',
           },
-        }
-      }
-    }
+        },
+      },
+    },
   },
 });
 

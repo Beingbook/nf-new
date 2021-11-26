@@ -1,6 +1,5 @@
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { createVar } from "@vanilla-extract/css";
-import { sprinkles } from '../../theme/sprinkles.css';
+import { createVar } from '@vanilla-extract/css';
 
 export const currentColor = createVar();
 
@@ -12,7 +11,7 @@ export const buttonRecipe = recipe({
     borderRadius: 2,
     cursor: 'pointer',
     ':hover': {
-      outline: '1px solid currentColor'
+      outline: '1px solid currentColor',
     },
     color: currentColor,
     vars: {
@@ -29,13 +28,13 @@ export const buttonRecipe = recipe({
     variant: {
       stroke: { boxShadow: `0 0 1px 1px ${currentColor}` },
       'strong-fill': { backgroundColor: currentColor, color: '#fff' },
-    }
+    },
   },
 
   defaultVariants: {
     variant: 'stroke',
     size: 'm',
-  }
+  },
 });
 
 export type Variants = RecipeVariants<typeof buttonRecipe>;

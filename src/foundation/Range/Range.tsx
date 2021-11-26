@@ -43,12 +43,12 @@ export function Range({ variant, onValueChange, onValueMouseUp, minSymbol, maxSy
       <span className={symbol} onClick={getStepClickHandler(-step)}>{minSymbol}</span>
     )}
     <input {...mergeProps(props, {
-        type: 'range',
-        className: inputRecipe({ variant }),
-        style,
-        onChange,
-        onMouseUp,
-      })}
+      type: 'range',
+      className: inputRecipe({ variant }),
+      style,
+      onChange,
+      onMouseUp,
+    })}
     />
     {maxSymbol && (
       <span className={symbol} onClick={getStepClickHandler(step)}>{maxSymbol}</span>

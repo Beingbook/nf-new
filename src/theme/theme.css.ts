@@ -10,6 +10,6 @@ export const [themeClass, vars] = createTheme({
   space: {
     small: '4px',
     medium: '8px',
-  }
+  },
 });
 

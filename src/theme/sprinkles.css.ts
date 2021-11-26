@@ -15,7 +15,7 @@ const responsiveStyles = defineProperties({
   conditions: {
     mobile: {},
     tablet: { '@media': 'screen and (min-width: 768px)' },
-    desktop: { '@media': 'screen and (min-width: 1024px)' }
+    desktop: { '@media': 'screen and (min-width: 1024px)' },
   },
   defaultCondition: 'mobile',
   properties: {
@@ -34,20 +34,20 @@ const responsiveStyles = defineProperties({
     paddingX: ['paddingLeft', 'paddingRight'],
     paddingY: ['paddingTop', 'paddingBottom'],
     placeItems: ['justifyContent', 'alignItems'],
-  }
+  },
 });
 
 const colorStyles = defineProperties({
   conditions: {
     lightMode: {},
-    darkMode: { '@media': '(prefers-color-scheme: dark)' }
+    darkMode: { '@media': '(prefers-color-scheme: dark)' },
   },
   defaultCondition: 'lightMode',
   properties: {
     color: vars.color,
     borderColor: vars.color,
     background: vars.color,
-  }
+  },
 });
 
 export const sprinkles = createSprinkles(colorStyles, responsiveStyles);
