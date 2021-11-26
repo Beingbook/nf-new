@@ -1,6 +1,6 @@
 import tokens from './tokens.json';
 
-type Tokens = typeof tokens;9
+type Tokens = typeof tokens;
 type Concat<A extends string, B extends string> = `${Lowercase<A>}-${Lowercase<B>}`;
 type Color = keyof Tokens;
 type Key = { [K in Color]: K extends string ? keyof Tokens[K] extends string ? Concat<K, keyof Tokens[K]> : K : K }[Color];

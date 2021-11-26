@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.lintTask.enable": true
+}

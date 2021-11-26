@@ -21,7 +21,7 @@ export function Range({ variant, onValueChange, onValueMouseUp, minSymbol, maxSy
   const percentage = Math.abs(value - (min ?? 0)) / Math.abs((max ?? 0) - (min ?? 0));
   const style = assignInlineVars({
     [currentValue]: `${100 * percentage}%`,
-  })
+  });
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     onValueChange?.(Number(e.currentTarget.value));

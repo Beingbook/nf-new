@@ -6,7 +6,7 @@ import { buttonRecipe, Variants, currentColor } from './styles.css';
 import { Color, vars } from '../../theme/theme.css';
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & Variants & {
-  color: Color,
+  color: Color;
 };
 
 export function Button({ color, size, variant, ...props }: Props) {
