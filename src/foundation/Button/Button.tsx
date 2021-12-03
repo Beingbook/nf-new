@@ -9,8 +9,12 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & Variants & {
   color: Color;
 };
 
-export function Button({ color, size, variant, ...props }: Props) {
+export function getProps({ color, size, variant, ...props }: Props) {
   const className = buttonRecipe({ size, variant });
   const style = assignInlineVars({[currentColor]: vars.color[color]});
-  return <button {...mergeProps(props, {className, style})} />;
+  return mergeProps(props, {className, style});
+}
+
+export function Button(props: Props) {
+  return <button {...getProps(props)} />;
 }
