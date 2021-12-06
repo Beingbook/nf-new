@@ -1,8 +1,9 @@
 import React from 'react';
-import { assignInlineVars } from '@vanilla-extract/dynamic';
-import { clamp, mergeProps } from '@react-aria/utils';
 
-import { wrap, symbol, inputRecipe, currentValue, Variants } from './styles.css';
+import { clamp, mergeProps } from '@react-aria/utils';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
+
+import { currentValue, inputRecipe, symbol, Variants, wrap } from './styles.css';
 
 type Props = React.ComponentProps<'input'> & {
   value: number;

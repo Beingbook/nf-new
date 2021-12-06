@@ -23,13 +23,20 @@ module.exports = {
     },
     project: "./tsconfig.json",
   },
-  plugins: ["@typescript-eslint", "react", "react-hooks", "unused-imports"],
+  plugins: [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "unused-imports",
+    "simple-import-sort",
+  ],
   settings: {
     react: {
       version: "detect",
     },
   },
   rules: {
+    "comma-spacing": ["error"],
     quotes: ["error", "single"],
     semi: "off",
     "@typescript-eslint/semi": ["error", "always"],
@@ -84,5 +91,12 @@ module.exports = {
         argsIgnorePattern: "^_",
       },
     ],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        groups: [["^\\u0000"], ["^react"], ["^@?\\w"], ["^"], ["^\\."]],
+      },
+    ],
+    "simple-import-sort/exports": "error",
   },
 };

@@ -1,9 +1,10 @@
 import React from 'react';
-import { assignInlineVars } from '@vanilla-extract/dynamic';
-import { mergeProps } from '@react-aria/utils';
 
-import { buttonRecipe, Variants, currentColor } from './styles.css';
+import { mergeProps } from '@react-aria/utils';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
+
 import { Color, vars } from '../../theme/theme.css';
+import { buttonRecipe, currentColor, Variants } from './styles.css';
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & Variants & {
   color: Color;
