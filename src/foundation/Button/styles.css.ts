@@ -18,7 +18,7 @@ export const buttonRecipe = recipe({
       [currentColor]: 'grey',
     },
   },
-  
+
   variants: {
     size: {
       s: { lineHeight: '24px', padding: '0 8px' },

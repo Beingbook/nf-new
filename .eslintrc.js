@@ -36,7 +36,8 @@ module.exports = {
     },
   },
   rules: {
-    "comma-spacing": ["error"],
+    "comma-spacing": "error",
+    "no-trailing-spaces": "error",
     quotes: ["error", "single"],
     semi: "off",
     "@typescript-eslint/semi": ["error", "always"],
@@ -80,7 +81,6 @@ module.exports = {
         },
       },
     ],
-    "unused-imports/no-unused-imports-ts": "error",
     "@typescript-eslint/no-unused-vars": "off",
     "unused-imports/no-unused-vars-ts": [
       "warn",
@@ -91,12 +91,13 @@ module.exports = {
         argsIgnorePattern: "^_",
       },
     ],
+    "unused-imports/no-unused-imports-ts": "warn",
     "simple-import-sort/imports": [
-      "error",
+      "warn",
       {
         groups: [["^\\u0000"], ["^react"], ["^@?\\w"], ["^"], ["^\\."]],
       },
     ],
-    "simple-import-sort/exports": "error",
+    "simple-import-sort/exports": "warn",
   },
 };

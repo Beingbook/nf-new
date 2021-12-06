@@ -10,7 +10,7 @@ export const WithArgs = (args: React.ComponentProps<typeof Range>) => {
   const [value, setValue] = React.useState(args.value);
   const [valueSettled, setValueSettled] = React.useState(args.value);
   return <>
-    <Range {...args} value={value} onValueChange={setValue} onValueMouseUp={setValueSettled} />
+    <Range {...args} value={value} onValueInput={setValue} onValueChange={setValueSettled} />
     {value} {valueSettled}
   </>;
 }

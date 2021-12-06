@@ -54,10 +54,10 @@ export const inputRecipe = recipe({
       },
     },
   },
-  
+
   variants: {
     variant: {
-      bigThumb: { 
+      bigThumb: {
         height: '2px',
         background: `linear-gradient(to right, ${vars.color['red-600']} ${currentValue}, #f0f0f0 0)`,
         selectors: {
