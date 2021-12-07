@@ -3,7 +3,8 @@ import React from 'react';
 import { clamp, mergeProps } from '@react-aria/utils';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 
-import { currentValue, inputRecipe, symbol, Variants, wrap } from './styles.css';
+import { getColor, NamedColor } from '../../theme';
+import { currentColor, currentValue, inputRecipe, symbol, Variants, wrap } from './styles.css';
 
 type Value = {
   value: number;
@@ -11,7 +12,9 @@ type Value = {
   max?: number;
 };
 
-type RangeProps = React.ComponentProps<'input'> & Value & Variants;
+type RangeProps = React.ComponentProps<'input'> & Value & Variants & {
+  color: NamedColor;
+};
 
 type UseRangeProps = Value & {
   // Continous updates
@@ -59,21 +62,24 @@ export function useRange({ value, min, max, onValueChange, onValueInput}: UseRan
   };
 }
 
-export function RangeInput({ variant, ...props }: RangeProps) {
+export function getRangeProps({ variant, color = 'red', ...props }: RangeProps) {
   const { value, min, max } = props;
   const relativeValue = relative({ value, min, max });
 
   const style = assignInlineVars({
+    [currentColor]: getColor(color),
     [currentValue]: `${100 * relativeValue}%`,
   });
 
-  const inputProps = mergeProps(props, {
+  return mergeProps(props, {
     type: 'range',
     className: inputRecipe({ variant }),
     style,
   });
+}
 
-  return <input {...inputProps} />;
+export function RangeInput(props: RangeProps) {
+  return <input {...getRangeProps(props)} />;
 }
 
 export function Range({ onValueChange, onValueInput, minSymbol, maxSymbol, ...props }: Props) {

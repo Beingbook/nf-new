@@ -17,6 +17,7 @@ export const WithArgs = (args: React.ComponentProps<typeof Range>) => {
 
 WithArgs.args = {
   variant: '',
+  color: 'red',
   min: 0,
   max: 100,
   value: 50,

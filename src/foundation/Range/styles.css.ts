@@ -1,9 +1,10 @@
 import { createVar, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { vars } from '../../theme';
+import {vars } from '../../theme';
 
 export const currentValue = createVar();
+export const currentColor = createVar();
 
 export const wrap = style({
   display: 'flex',
@@ -50,7 +51,7 @@ export const inputRecipe = recipe({
         height: '12px',
         borderRadius: '50%',
         border: 'solid 2px #fff',
-        background: `${vars.color['red-600']}`,
+        background: `${currentColor}`,
       },
     },
   },
@@ -59,7 +60,7 @@ export const inputRecipe = recipe({
     variant: {
       bigThumb: {
         height: '2px',
-        background: `linear-gradient(to right, ${vars.color['red-600']} ${currentValue}, #f0f0f0 0)`,
+        background: `linear-gradient(to right, ${currentColor} ${currentValue}, #f0f0f0 0)`,
         selectors: {
           '&::-webkit-slider-thumb': {
             background: '#FFFFFF',

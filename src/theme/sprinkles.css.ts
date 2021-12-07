@@ -28,7 +28,6 @@ const responsiveStyles = defineProperties({
     paddingBottom: space,
     paddingLeft: space,
     paddingRight: space,
-    // etc.
   },
   shorthands: {
     padding: ['paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight'],
@@ -39,11 +38,6 @@ const responsiveStyles = defineProperties({
 });
 
 const colorStyles = defineProperties({
-  conditions: {
-    lightMode: {},
-    darkMode: { '@media': '(prefers-color-scheme: dark)' },
-  },
-  defaultCondition: 'lightMode',
   properties: {
     color: vars.color,
     borderColor: vars.color,

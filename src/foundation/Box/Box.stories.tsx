@@ -3,7 +3,7 @@ import { ComponentMeta } from '@storybook/react';
 
 import { Box, atoms } from './Box';
 import { spaces } from '../../theme/sprinkles.css';
-import { colors } from '../../theme/theme.css';
+import { namedColors as colors } from '../../theme/color-util';
 
 const props = Array.from(atoms.properties);
 

@@ -1,13 +1,9 @@
 import { createTheme } from '@vanilla-extract/css';
 
-import { colorsFromTokens } from './util';
-
-const color = colorsFromTokens();
-export type Color = keyof typeof color;
-export const colors = Object.keys(color) as Color[];
+import { colorMap } from './color-util';
 
 export const [themeClass, vars] = createTheme({
-  color,
+  color: colorMap,
   space: {
     small: '4px',
     medium: '8px',
