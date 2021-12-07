@@ -1,16 +1,16 @@
-import type { Options } from 'tsup';
+import { defineConfig } from 'tsup'
 
 import { vanillaExtractPlugin } from '@vanilla-extract/esbuild-plugin';
 
-export const tsup: Options = {
-  splitting: false,
+export default defineConfig({
+  splitting: true,
   sourcemap: true,
   clean: true,
   dts: true,
   format: ['esm', 'cjs'],
-  target: 'es2019',
+  target: ['chrome64', 'edge79', 'firefox62', 'safari11.1'],
   entryPoints: ['src/index.ts'],
   esbuildPlugins: [
     vanillaExtractPlugin(),
   ]
-}
+});

@@ -2,7 +2,7 @@ import { namedColors } from '../../theme';
 import { Button } from './Button';
 
 export default {
-  title: 'Foundation/Button',
+  title: 'Foundation/Inputs/Button',
   component: Button,
 };
 
