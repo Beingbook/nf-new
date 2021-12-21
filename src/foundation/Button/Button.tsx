@@ -4,7 +4,7 @@ import { mergeProps } from '@react-aria/utils';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 import { getColor, NamedColor } from '../../theme';
-import { buttonRecipe, currentColor, Variants } from './styles.css';
+import { buttonColor, buttonRecipe, Variants } from './styles.css';
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & Variants & {
   color: NamedColor;
@@ -12,7 +12,7 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & Variants & {
 
 export function getButtonProps({ color, size, variant, ...props }: Props) {
   const className = buttonRecipe({ size, variant });
-  const style = assignInlineVars({ [currentColor]: getColor(color) });
+  const style = assignInlineVars({ [buttonColor]: getColor(color) });
   return mergeProps(props, { className, style });
 }
 

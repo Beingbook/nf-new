@@ -7,6 +7,13 @@ type RgbColor = `#${string}`;
 
 export type Color = RgbColor | NamedColor | NamedColorWeight;
 
+/**
+ * Translates color tokens into CSS values.
+ * getColor('red')
+ * getColor('red-600')
+ * getColor('red', 600)
+ * getColor('#abcdef')
+ */
 export function getColor<C extends Color>(color: C, weight?: ColorWeights<C>): string {
   if (color in vars.color) {
     return vars.color[color as NamedColorWeight];

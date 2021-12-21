@@ -1,2 +1,2 @@
 export { Button, getButtonProps } from './Button';
-export { buttonRecipe, currentColor } from './styles.css';
+export { buttonColor, buttonRecipe } from './styles.css';

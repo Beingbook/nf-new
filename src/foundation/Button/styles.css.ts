@@ -1,7 +1,7 @@
 import { createVar } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-export const currentColor = createVar();
+export const buttonColor = createVar();
 
 export const buttonRecipe = recipe({
   base: {
@@ -13,9 +13,9 @@ export const buttonRecipe = recipe({
     ':hover': {
       outline: '1px solid currentColor',
     },
-    color: currentColor,
+    color: buttonColor,
     vars: {
-      [currentColor]: 'grey',
+      [buttonColor]: 'grey',
     },
   },
 
@@ -26,8 +26,8 @@ export const buttonRecipe = recipe({
       l: { lineHeight: '40px', padding: '0 12px' },
     },
     variant: {
-      stroke: { boxShadow: `0 0 1px 1px ${currentColor}` },
-      'strong-fill': { backgroundColor: currentColor, color: '#fff' },
+      stroke: { boxShadow: `0 0 1px 1px ${buttonColor}` },
+      'strong-fill': { backgroundColor: buttonColor, color: '#fff' },
     },
   },
 
