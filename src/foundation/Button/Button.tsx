@@ -10,12 +10,12 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & Variants & {
   color: NamedColor;
 };
 
-export function getProps({ color, size, variant, ...props }: Props) {
+export function getButtonProps({ color, size, variant, ...props }: Props) {
   const className = buttonRecipe({ size, variant });
   const style = assignInlineVars({ [currentColor]: getColor(color) });
   return mergeProps(props, { className, style });
 }
 
 export function Button(props: Props) {
-  return <button {...getProps(props)} />;
+  return <button {...getButtonProps(props)} />;
 }
