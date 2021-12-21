@@ -1,5 +1,5 @@
-import { vars } from './theme.css';
 import { ColorWeightMap, NamedColor, namedColors, NamedColorWeight } from './color-util';
+import { vars } from './theme.css';
 export { NamedColor, namedColors, NamedColorWeight };
 
 type ColorWeights<C extends Color> = C extends NamedColor ? ColorWeightMap[C] : never;

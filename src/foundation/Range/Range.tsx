@@ -33,7 +33,7 @@ function relative({ value, max = 0, min = 0 }: { value: number; max?: number; mi
   return Math.abs(value - min) / Math.abs(max - min);
 }
 
-export function useRange({ value, min, max, onValueChange, onValueInput}: UseRangeProps) {
+export function useRange({ value, min, max, onValueChange, onValueInput }: UseRangeProps) {
   /**
    * Trigger onValueInput with a numerical value for input.onChange.
    * Browser/React are inconsistent with regards to onChange/onInput, but let's do it correctly here.

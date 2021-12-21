@@ -37,6 +37,7 @@ module.exports = {
   },
   rules: {
     "comma-spacing": "error",
+    "object-curly-spacing": ["error", "always"],
     "no-trailing-spaces": "error",
     quotes: ["error", "single"],
     semi: "off",

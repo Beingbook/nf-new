@@ -12,8 +12,8 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & Variants & {
 
 export function getProps({ color, size, variant, ...props }: Props) {
   const className = buttonRecipe({ size, variant });
-  const style = assignInlineVars({[currentColor]: getColor(color)});
-  return mergeProps(props, {className, style});
+  const style = assignInlineVars({ [currentColor]: getColor(color) });
+  return mergeProps(props, { className, style });
 }
 
 export function Button(props: Props) {
