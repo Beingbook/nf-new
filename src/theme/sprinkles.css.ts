@@ -2,32 +2,16 @@ import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
 
 import { vars } from './theme.css';
 
-const space = {
-  'none': 0,
-  'small': '4px',
-  'medium': '8px',
-  'large': '16px',
-};
-
-export const spaces = Object.keys(space) as (keyof typeof space)[];
-export type Space = typeof spaces[number];
-
 const responsiveStyles = defineProperties({
-  conditions: {
-    mobile: {},
-    tablet: { '@media': 'screen and (min-width: 768px)' },
-    desktop: { '@media': 'screen and (min-width: 1024px)' },
-  },
-  defaultCondition: 'mobile',
   properties: {
     display: ['none', 'flex', 'block', 'inline', 'inline-flex'],
     flexDirection: ['row', 'column'],
     justifyContent: ['stretch', 'flex-start', 'center', 'flex-end', 'space-around', 'space-between'],
     alignItems: ['stretch', 'flex-start', 'center', 'flex-end'],
-    paddingTop: space,
-    paddingBottom: space,
-    paddingLeft: space,
-    paddingRight: space,
+    paddingTop: vars.space,
+    paddingBottom: vars.space,
+    paddingLeft: vars.space,
+    paddingRight: vars.space,
   },
   shorthands: {
     padding: ['paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight'],

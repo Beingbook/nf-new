@@ -4,7 +4,7 @@ import { clamp, mergeProps } from '@react-aria/utils';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 import { getColor, NamedColor } from '../../theme';
-import { currentColor, currentValue, inputRecipe, symbol, Variants, wrap } from './styles.css';
+import { selectedColor, currentValue, inputRecipe, symbol, Variants, wrap } from './styles.css';
 import { relative } from '../../util/math';
 
 type RangeValue = {
@@ -64,7 +64,7 @@ export function getRangeProps({ variant, color = 'red', ...props }: RangeProps) 
   const relativeValue = relative({ value, min, max });
 
   const style = assignInlineVars({
-    [currentColor]: getColor(color),
+    [selectedColor]: getColor(color),
     [currentValue]: `${100 * relativeValue}%`,
   });
 

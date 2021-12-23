@@ -11,6 +11,8 @@ export default defineConfig({
   target: ['chrome64', 'edge79', 'firefox62', 'safari11.1'],
   entryPoints: ['src/index.ts'],
   esbuildPlugins: [
-    vanillaExtractPlugin(),
+    vanillaExtractPlugin({
+      identifiers: process.env.NODE_ENV === 'production' ? 'short' : 'debug',
+    }),
   ]
 });

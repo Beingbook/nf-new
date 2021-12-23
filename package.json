@@ -6,6 +6,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "tsup",
+    "build:prod": "NODE_ENV=production tsup",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
     "test:types": "tsc",

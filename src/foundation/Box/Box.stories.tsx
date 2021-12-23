@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentMeta } from '@storybook/react';
 
 import { Box, atoms } from './Box';
-import { spaces } from '../../theme/sprinkles.css';
 import { namedColors as colors } from '../../theme/color-util';
+import { spaces } from '../../theme';
 
 const props = Array.from(atoms.properties);
 

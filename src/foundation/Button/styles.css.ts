@@ -1,11 +1,15 @@
 import { createVar } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
+import { sprinkles, vars } from '../../theme';
+
 export const buttonColor = createVar();
 
 export const buttonRecipe = recipe({
-  base: {
-    display: 'inline-block',
+  base: [sprinkles({
+    display: 'inline-flex',
+  }),
+  {
     background: 'transparent',
     border: 0,
     borderRadius: 2,
@@ -15,9 +19,9 @@ export const buttonRecipe = recipe({
     },
     color: buttonColor,
     vars: {
-      [buttonColor]: 'grey',
+      [buttonColor]: vars.color['gray'],
     },
-  },
+  }],
 
   variants: {
     size: {

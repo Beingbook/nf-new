@@ -2,8 +2,8 @@ import { getColor } from './color';
 
 describe('getColor', () => {
   it('returns named color with default weight', () => {
-    expect(getColor('red')).toContain('var(--color-red-600');
-    expect(getColor('cloud')).toContain('var(--color-cloud-100');
+    expect(getColor('red')).toContain('var(--color-red');
+    expect(getColor('cloud')).toContain('var(--color-cloud');
   });
   it('returns named color with weight in string', () => {
     expect(getColor('red-400')).toContain('var(--color-red-400');

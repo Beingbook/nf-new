@@ -1,66 +1,75 @@
 import { createVar, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { vars } from '../../theme';
+import { sprinkles, vars } from '../../theme';
 
 export const currentValue = createVar();
-export const currentColor = createVar();
+export const selectedColor = createVar();
 
-export const wrap = style({
-  display: 'flex',
-  alignItems: 'center',
-  height: vars.space.medium,
-});
+export const wrap = style([
+  sprinkles({
+    display: 'flex',
+    alignItems: 'center',
+  }),
+  {
+    height: vars.space.medium,
+  },
+]);
 
-export const symbol = style({
-  minWidth: vars.space.medium,
-  padding: '0 5px',
-  boxSizing: 'border-box',
-  height: vars.space.medium,
-  fontSize: '13px',
-  flexShrink: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  cursor: 'pointer',
-  userSelect: 'none',
-});
+export const symbol = style([
+  sprinkles({
+    display: 'flex',
+    placeItems: 'center',
+  }),
+  {
+    height: vars.space.medium,
+    minWidth: vars.space.medium,
+    padding: '0 5px',
+    boxSizing: 'border-box',
+    fontSize: '13px',
+    flexShrink: 0,
+    cursor: 'pointer',
+    userSelect: 'none',
+  },
+]);
 
 export const inputRecipe = recipe({
-  base: {
-    width: '100%',
-    height: '3px',
-    WebkitAppearance: 'none',
-    appearance: 'none',
-    cursor: 'pointer',
-    background: '#f0f0f0',
+  base: [
+    sprinkles({
+      background: 'gray-060',
+    }), {
+      width: '100%',
+      height: '3px',
+      WebkitAppearance: 'none',
+      appearance: 'none',
+      cursor: 'pointer',
 
-    vars: {
-      [currentValue]: '0',
-    },
-
-    ':focus': {
-      outline: 'none',
-    },
-
-    selectors: {
-      '&::-webkit-slider-thumb': {
-        WebkitAppearance: 'none',
-        appearance: 'none',
-        width: '12px',
-        height: '12px',
-        borderRadius: '50%',
-        border: 'solid 2px #fff',
-        background: `${currentColor}`,
+      vars: {
+        [currentValue]: '0',
       },
-    },
-  },
+
+      ':focus': {
+        outline: 'none',
+      },
+
+      selectors: {
+        '&::-webkit-slider-thumb': {
+          WebkitAppearance: 'none',
+          appearance: 'none',
+          width: '12px',
+          height: '12px',
+          borderRadius: '50%',
+          border: 'solid 2px #fff',
+          background: `${selectedColor}`,
+        },
+      },
+    }],
 
   variants: {
     variant: {
       bigThumb: {
         height: '2px',
-        background: `linear-gradient(to right, ${currentColor} ${currentValue}, #f0f0f0 0)`,
+        background: `linear-gradient(to right, ${selectedColor} ${currentValue}, #f0f0f0 0)`,
         selectors: {
           '&::-webkit-slider-thumb': {
             background: '#FFFFFF',

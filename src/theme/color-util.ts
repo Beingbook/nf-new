@@ -6,8 +6,6 @@ export type NamedColor = Lowercase<keyof Tokens>;
 export type NamedColorWeight = { [K in keyof Tokens]: K extends string ? keyof Tokens[K] extends string ? Concat<K, keyof Tokens[K]> : K : K }[keyof Tokens];
 export type ColorWeightMap = { [K in keyof Tokens as Lowercase<K>]: K extends string ? keyof Tokens[K] extends string ? keyof Tokens[K] : K : K };
 
-export const namedColors = Object.keys(tokens).map(str => str.toLowerCase()) as NamedColor[];
-
 /**
  * Translate JSON from Figma into usable object structure and types
  **/
@@ -24,3 +22,7 @@ function colorsFromTokens() {
 
 export const colorMap = colorsFromTokens();
 export const colors = Object.keys(colorMap) as NamedColorWeight[];
+export const namedColors = Object.keys(tokens).map(str => str.toLowerCase()) as NamedColor[];
+export const namedColorMap = Object.fromEntries(namedColors.map(color =>
+  [color, colorMap[`${color}-600` as NamedColorWeight] ?? colorMap[`${color}-100`]],
+)) as Record<NamedColor, string>;
