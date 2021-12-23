@@ -5,18 +5,19 @@ import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 import { getColor, NamedColor } from '../../theme';
 import { currentColor, currentValue, inputRecipe, symbol, Variants, wrap } from './styles.css';
+import { relative } from '../../util/math';
 
-type Value = {
+type RangeValue = {
   value: number;
   min?: number;
   max?: number;
 };
 
-type RangeProps = React.ComponentProps<'input'> & Value & Variants & {
+type RangeProps = React.ComponentProps<'input'> & RangeValue & Variants & {
   color: NamedColor;
 };
 
-type UseRangeProps = Value & {
+type UseRangeProps = RangeValue & {
   // Continous updates
   onValueInput?: (value: number) => void;
   // Updates when value settled
@@ -28,10 +29,6 @@ type Props = RangeProps & UseRangeProps & {
   maxSymbol?: React.ReactNode;
   step?: number;
 };
-
-function relative({ value, max = 0, min = 0 }: { value: number; max?: number; min?: number }) {
-  return Math.abs(value - min) / Math.abs(max - min);
-}
 
 export function useRange({ value, min, max, onValueChange, onValueInput }: UseRangeProps) {
   /**
