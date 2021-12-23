@@ -11,6 +11,7 @@
       "esnext"
     ],
     "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
     "module": "esnext",
     "moduleResolution": "node",
     "declaration": true,
