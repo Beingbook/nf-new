@@ -8,6 +8,9 @@ export type ColorWeightMap = { [K in keyof Tokens as Lowercase<K>]: K extends st
 
 export const namedColors = Object.keys(tokens).map(str => str.toLowerCase()) as NamedColor[];
 
+/**
+ * Translate JSON from Figma into usable object structure and types
+ **/
 function colorsFromTokens() {
   const colors: Partial<Record<NamedColorWeight, string>> = {};
   for (const [color, colorDef] of Object.entries(tokens)) {
