@@ -71,23 +71,3 @@ export const toggleButtonRecipe = recipe({
 });
 
 export type Variants = RecipeVariants<typeof toggleButtonRecipe>;
-
-
-
-/*const toggleButtonBaseStyles = css`
-
-export const toggleButtonColorStyles = memoize(
-[WeakMap, Map],
-(theme: ModeSelectedThemeType, color: DefaultColor = 'primary') => {
-  const [selectedColor, darkenColor] = getColors(theme.palette, color);
-  return css`
-    background-color: ${selectedColor};
-    &:hover,
-    &:focus-visible {
-      background-color: ${darkenColor};
-    }
-  `;
-},
-);
-
-*/
