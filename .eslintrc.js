@@ -96,7 +96,13 @@ module.exports = {
     "simple-import-sort/imports": [
       "warn",
       {
-        groups: [["^\\u0000"], ["^react"], ["^@?\\w"], ["^"], ["^\\."]],
+        groups: [
+          ["^\\u0000"],
+          ["^react", "^reakit"],
+          ["^@?\\w"],
+          ["^"],
+          ["^\\."],
+        ],
       },
     ],
     "simple-import-sort/exports": "warn",

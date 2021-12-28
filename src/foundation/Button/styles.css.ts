@@ -30,7 +30,7 @@ export const buttonRecipe = recipe({
       l: { lineHeight: '40px', padding: '0 12px' },
     },
     variant: {
-      stroke: { boxShadow: `0 0 1px 1px ${buttonColor}` },
+      stroke: { boxShadow: `inset 0 0 1px 1px ${buttonColor}` },
       'strong-fill': { backgroundColor: buttonColor, color: '#fff' },
     },
   },

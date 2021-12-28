@@ -4,8 +4,8 @@ import { clamp, mergeProps } from '@react-aria/utils';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 import { getColor, NamedColor } from '../../theme';
-import { selectedColor, currentValue, inputRecipe, symbol, Variants, wrap } from './styles.css';
 import { relative } from '../../util/math';
+import { currentValue, inputRecipe, selectedColor, symbol, Variants, wrap } from './styles.css';
 
 type RangeValue = {
   value: number;
