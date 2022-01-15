@@ -43,15 +43,15 @@ export const StyleWithRecipe = () => {
 
 /**
  * Using sprinkles like this is unnecessary for Box, you can just pass the properties to the Box component.
- * But this is can be a useful example for other components.
+ * But this can be a useful example for other components.
  */
 export const StyleWithAtoms = () => {
   const className = atoms({
     display: 'flex',
     justifyContent: 'center',
-    padding: 'medium',
+    padding: 'medium', // this overrides the Box prop
     backgroundColor: {
-      hover: 'blue-050',
+      hover: 'blue-050', // this overrides the Box prop on hover
     },
   });
   return <Box p={1} color="blue" backgroundColor="gray-060" className={className}>Use atoms directly.</Box>;
