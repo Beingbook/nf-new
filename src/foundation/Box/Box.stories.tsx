@@ -88,7 +88,13 @@ export const GridCenter = () => {
   </Box>;
 };
 
-export const FocusWithin = () => {
+export const ConditionHover = () => {
+  return <Box p={2} border="1px solid transparent" borderColor={{ hover: 'blue' }}>
+    Hover me
+  </Box>;
+};
+
+export const ConditionFocusWithin = () => {
   return <Box p={2} border="1px solid transparent" borderColor={{ focusWithin: 'blue' }}>
     <input placeholder="Focus me" />
   </Box>;

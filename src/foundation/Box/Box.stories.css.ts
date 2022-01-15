@@ -14,7 +14,8 @@ export const overloadRecipe = recipe({
       justifyContent: 'center',
       padding: 'medium',
       backgroundColor: {
-        default: 'gray-060', hover: 'gray-100',
+        default: 'gray-060',
+        hover: 'gray-100',
       },
     }),
     {
