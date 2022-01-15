@@ -64,8 +64,8 @@ export const StyleCustom = () => {
   return <Box p={1} color="blue" backgroundColor="gray-060" className={overloadStyle}>Define custom styles.</Box>;
 };
 
-export const FlexBox = () => {
-  return <Box display="flex" mx="auto" backgroundColor="gray-060" p={1} style={{ maxWidth: 200 }}>
+export const Flex = () => {
+  return <Box display="flex" mx="auto" backgroundColor="gray-060" p={1} borderRadius="4px" style={{ maxWidth: 200 }}>
     <Box>Left</Box>
     <Box marginLeft="auto">Right</Box>
   </Box>;
@@ -82,8 +82,30 @@ export const Grid = () => {
   </Box>;
 };
 
+export const GridCenter = () => {
+  return <Box display="grid" placeItems="center" textAlign="center" p={2} mx="auto" backgroundColor="gray-060" style={{ maxWidth: 200, height: 100 }}>
+    The easiest way to center both horizontally and vertically!
+  </Box>;
+};
+
 export const FocusWithin = () => {
   return <Box p={2} border="1px solid transparent" borderColor={{ focusWithin: 'blue' }}>
     <input placeholder="Focus me" />
+  </Box>;
+};
+
+export const Scroll = () => {
+  return <Box overflow="auto" border="1px solid transparent" borderColor="gray-100" style={{ height: 200 }}>
+    <Box backgroundColor="blue-050" style={{ height: 400 }}>
+      <Box p={1} backgroundColor="blue-100">Scroll me. Notice how the scrollbar appears outside of the box content.</Box>
+    </Box>
+  </Box>;
+};
+
+export const ScrollOverlay = () => {
+  return <Box overflow="overlay" border="1px solid transparent" borderColor="gray-100" style={{ height: 200 }}>
+    <Box backgroundColor="blue-050" style={{ height: 400 }}>
+      <Box p={1} backgroundColor="blue-100">Scroll me. Notice how the scrollbar overlays.</Box>
+    </Box>
   </Box>;
 };

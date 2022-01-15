@@ -1,5 +1,6 @@
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
 
+import { defaultScrollbarStyles } from './scrollbar';
 import { vars } from './theme.css';
 
 /**
@@ -18,12 +19,28 @@ const spaceProperties = [
 const layoutStyles = defineProperties({
   properties: {
     display: ['none', 'flex', 'grid', 'block', 'inline', 'inline-flex'],
+    visibility: ['hidden', 'visible'],
     flexDirection: ['row', 'column'],
     flexWrap: ['wrap'],
     justifyContent: ['stretch', 'flex-start', 'center', 'flex-end', 'space-around', 'space-between'],
     alignItems: ['stretch', 'flex-start', 'center', 'flex-end'],
-    cursor: ['pointer'],
-    ...mapTo(spaceProperties, { ... vars.space, auto: 'auto', full: '100%' }),
+    placeItems: ['center'],
+    textAlign: ['center', 'right'],
+    boxSizing: ['border-box'],
+    position: ['absolute', 'relative', 'fixed'],
+    scrollbarGutter: ['stable'],
+    overflow: {
+      hidden: 'hidden',
+      auto: {
+        overflow: 'auto',
+        ...defaultScrollbarStyles,
+      },
+      overlay: {
+        overflow: ['auto', 'overlay'], // in Firefox and IE `overlay` will be ignored and `auto` will be applied
+        ...defaultScrollbarStyles,
+      },
+    },
+    ...mapTo(spaceProperties, { ...vars.space, auto: 'auto', full: '100%' }),
   },
   shorthands: {
     p: ['padding'],
@@ -37,7 +54,16 @@ const layoutStyles = defineProperties({
 
 const decorationStyles = defineProperties({
   properties: {
-    border: ['1px solid', '1px solid transparent'],
+    ...mapTo(['border', 'borderLeft', 'borderRight', 'borderTop', 'borderBottom'], ['1px solid', '1px solid transparent']),
+    borderRadius: ['2px', '4px', '9999px', '100%'],
+    cursor: ['pointer'],
+  },
+  shorthands: {
+    bb: ['borderBottom'],
+    bt: ['borderTop'],
+    bl: ['borderLeft'],
+    br: ['borderRight'],
+    b: ['border'],
   },
 });
 
@@ -49,7 +75,7 @@ const colorStyles = defineProperties({
   },
   defaultCondition: 'default',
   properties: {
-    ...mapTo(['color', 'borderColor', 'backgroundColor'], { ... vars.color, transparent: 'transparent' }),
+    ...mapTo(['color', 'borderColor', 'backgroundColor'], { ...vars.color, transparent: 'transparent' }),
   },
 });
 
