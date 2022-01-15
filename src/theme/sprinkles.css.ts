@@ -35,17 +35,24 @@ const layoutStyles = defineProperties({
   },
 });
 
+const decorationStyles = defineProperties({
+  properties: {
+    border: ['1px solid', '1px solid transparent'],
+  },
+});
+
 const colorStyles = defineProperties({
   conditions: {
     default: {},
     hover: { selector: '&:hover' },
+    focusWithin: { selector: '&:focus-within' },
   },
   defaultCondition: 'default',
   properties: {
-    ...mapTo(['color', 'borderColor', 'backgroundColor'], vars.color),
+    ...mapTo(['color', 'borderColor', 'backgroundColor'], { ... vars.color, transparent: 'transparent' }),
   },
 });
 
-export const atoms = createSprinkles(layoutStyles, colorStyles);
+export const atoms = createSprinkles(layoutStyles, decorationStyles, colorStyles);
 
 export type Atoms = Parameters<typeof atoms>[0];

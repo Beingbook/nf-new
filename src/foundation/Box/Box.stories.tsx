@@ -81,3 +81,9 @@ export const Grid = () => {
     <Box>6</Box>
   </Box>;
 };
+
+export const FocusWithin = () => {
+  return <Box p={2} border="1px solid transparent" borderColor={{ focusWithin: 'blue' }}>
+    <input placeholder="Focus me" />
+  </Box>;
+};
