@@ -63,3 +63,21 @@ export const StyleWithAtoms = () => {
 export const StyleCustom = () => {
   return <Box p={1} color="blue" backgroundColor="gray-060" className={overloadStyle}>Define custom styles.</Box>;
 };
+
+export const FlexBox = () => {
+  return <Box display="flex" mx="auto" backgroundColor="gray-060" p={1} style={{ maxWidth: 200 }}>
+    <Box>Left</Box>
+    <Box marginLeft="auto">Right</Box>
+  </Box>;
+};
+
+export const Grid = () => {
+  return <Box display="grid" mx="auto" backgroundColor="gray-060" p={1} gap={1} style={{ maxWidth: 200, gridTemplateColumns: '1fr 1fr 1fr' }}>
+    <Box>1</Box>
+    <Box>2</Box>
+    <Box>3</Box>
+    <Box>4</Box>
+    <Box>5</Box>
+    <Box>6</Box>
+  </Box>;
+};

@@ -12,16 +12,18 @@ function mapTo<Key extends string, Value>(keys: readonly Key[], value: Value) {
 const spaceProperties = [
   'padding', 'paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight',
   'margin', 'marginTop', 'marginBottom', 'marginLeft', 'marginRight',
+  'gap', 'rowGap', 'columnGap',
 ] as const;
 
-const responsiveStyles = defineProperties({
+const layoutStyles = defineProperties({
   properties: {
-    display: ['none', 'flex', 'block', 'inline', 'inline-flex'],
+    display: ['none', 'flex', 'grid', 'block', 'inline', 'inline-flex'],
     flexDirection: ['row', 'column'],
+    flexWrap: ['wrap'],
     justifyContent: ['stretch', 'flex-start', 'center', 'flex-end', 'space-around', 'space-between'],
     alignItems: ['stretch', 'flex-start', 'center', 'flex-end'],
     cursor: ['pointer'],
-    ...mapTo(spaceProperties, vars.space),
+    ...mapTo(spaceProperties, { ... vars.space, auto: 'auto', full: '100%' }),
   },
   shorthands: {
     p: ['padding'],
@@ -44,6 +46,6 @@ const colorStyles = defineProperties({
   },
 });
 
-export const atoms = createSprinkles(colorStyles, responsiveStyles);
+export const atoms = createSprinkles(layoutStyles, colorStyles);
 
 export type Atoms = Parameters<typeof atoms>[0];
