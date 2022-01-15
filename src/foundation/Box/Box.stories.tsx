@@ -2,8 +2,7 @@ import React from 'react';
 import { ComponentMeta } from '@storybook/react';
 
 import { Box } from './Box';
-import { namedColors as colors } from '../../theme/color-util';
-import { spaces, atoms } from '../../theme';
+import { atoms } from '../../theme';
 import { overloadRecipe, overloadStyle } from './Box.stories.css';
 
 const props = Array.from(atoms.properties);
@@ -13,16 +12,6 @@ const argTypes = props.reduce(
   (all, a) => { all[a] = { table: { category: 'atoms' } }; return all; },
   {} as Record<(typeof props)[number], any>
 );
-argTypes.color.control = {
-  type: 'select',
-  options: [undefined, ...colors],
-}
-argTypes.background.control = argTypes.color.control;
-argTypes.borderColor.control = argTypes.color.control;
-argTypes.padding.control = {
-  type: 'select',
-  options: [undefined, ...spaces],
-}
 
 export default {
   title: 'Foundation/Box',
@@ -38,32 +27,39 @@ export default {
 
 export const WithArgs = (args: any) => <Box {...args}>Welcome to the box! Box can be used to abstract certain often-used style properties.</Box>;
 
-export const BasicUsage = () => <Box p={1} color="blue" background="gray-060">Hello, world!</Box>;
+export const BasicUsage = () => <Box p={1} color="blue" backgroundColor="gray-060">Hello, world!</Box>;
+
+export const StyleWithConditions = () => <Box p={1} color="blue" cursor="pointer" backgroundColor={{
+  default: 'gray-060', hover: 'gray-100'
+}}>Some atomic styles can be defined conditionally, e.g. for hover effects.</Box>;
 
 /**
  * Combining sprinkles and a recipe can be useful.
  */
-export const StyleRecipe = () => {
+export const StyleWithRecipe = () => {
   const className = overloadRecipe();
-  return <Box p={1} color="blue" background="gray-060" className={className}>Hello, world!</Box>;
+  return <Box p={1} color="blue" className={className}>For biggest flexibility, define a recipe.</Box >;
 };
 
 /**
  * Using sprinkles like this is unnecessary for Box, you can just pass the properties to the Box component.
  * But this is can be a useful example for other components.
  */
-export const StyleAtoms = () => {
+export const StyleWithAtoms = () => {
   const className = atoms({
     display: 'flex',
     justifyContent: 'center',
     padding: 'medium',
+    backgroundColor: {
+      hover: 'blue-050',
+    },
   });
-  return <Box p={1} color="blue" background="gray-060" className={className}>Hello, world!</Box>;
+  return <Box p={1} color="blue" backgroundColor="gray-060" className={className}>Use atoms directly.</Box>;
 };
 
 /**
  * Setting custom styles manually is also possible.
  */
 export const StyleCustom = () => {
-  return <Box p={1} color="blue" background="gray-060" className={overloadStyle}>Hello, world!</Box>;
+  return <Box p={1} color="blue" backgroundColor="gray-060" className={overloadStyle}>Define custom styles.</Box>;
 };

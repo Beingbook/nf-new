@@ -36,7 +36,7 @@ export const symbol = style([
 export const inputRecipe = recipe({
   base: [
     atoms({
-      background: 'gray-060',
+      backgroundColor: 'gray-060',
     }), {
       width: '100%',
       height: '3px',

@@ -20,6 +20,7 @@ const responsiveStyles = defineProperties({
     flexDirection: ['row', 'column'],
     justifyContent: ['stretch', 'flex-start', 'center', 'flex-end', 'space-around', 'space-between'],
     alignItems: ['stretch', 'flex-start', 'center', 'flex-end'],
+    cursor: ['pointer'],
     ...mapTo(spaceProperties, vars.space),
   },
   shorthands: {
@@ -33,10 +34,13 @@ const responsiveStyles = defineProperties({
 });
 
 const colorStyles = defineProperties({
+  conditions: {
+    default: {},
+    hover: { selector: '&:hover' },
+  },
+  defaultCondition: 'default',
   properties: {
-    color: vars.color,
-    borderColor: vars.color,
-    background: vars.color,
+    ...mapTo(['color', 'borderColor', 'backgroundColor'], vars.color),
   },
 });
 

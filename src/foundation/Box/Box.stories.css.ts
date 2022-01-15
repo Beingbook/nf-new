@@ -13,10 +13,14 @@ export const overloadRecipe = recipe({
       display: 'flex',
       justifyContent: 'center',
       padding: 'medium',
+      backgroundColor: {
+        default: 'gray-060', hover: 'gray-100',
+      },
     }),
     {
       position: 'relative',
       left: vars.space[2],
+      cursor: 'pointer',
     },
   ],
 });
