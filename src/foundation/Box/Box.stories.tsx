@@ -65,6 +65,8 @@ export const StyleCustom = () => {
 };
 
 export const Flex = () => {
+  // Non-static properties like width are not part of the atomic styles. You can either define them
+  // using style() in a style.css.ts file or use the inline style escape hatch like here.
   return <Box display="flex" mx="auto" backgroundColor="gray-060" p={1} borderRadius="4px" style={{ maxWidth: 200 }}>
     <Box>Left</Box>
     <Box marginLeft="auto">Right</Box>
