@@ -2,13 +2,13 @@
 import { createVar } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { sprinkles, vars } from '../../theme';
+import { atoms, vars } from '../../theme';
 import { scale } from '../../theme/scale';
 
 export const buttonColor = createVar();
 
 export const toggleButtonRecipe = recipe({
-  base: [sprinkles({
+  base: [atoms({
     display: 'inline-flex',
   }),
   {
@@ -56,10 +56,10 @@ export const toggleButtonRecipe = recipe({
 
   variants: {
     size: {
-      xs: { fontSize: scale(3) },
-      s: { fontSize: scale(4) },
-      m: { fontSize: scale(5) },
-      l: { fontSize: scale(6) },
+      xs: { fontSize: scale(1.5) },
+      s: { fontSize: scale(2) },
+      m: { fontSize: scale(2.5) },
+      l: { fontSize: scale(3) },
     },
     variant: {
       stroke: { boxShadow: `inset 0 0 1px 1px ${buttonColor}`, ':before': { backgroundColor: buttonColor } },

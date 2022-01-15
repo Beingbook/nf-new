@@ -1,13 +1,13 @@
 import { createVar, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { sprinkles, vars } from '../../theme';
+import { atoms, vars } from '../../theme';
 
 export const currentValue = createVar();
 export const selectedColor = createVar();
 
 export const wrap = style([
-  sprinkles({
+  atoms({
     display: 'flex',
     alignItems: 'center',
   }),
@@ -17,9 +17,9 @@ export const wrap = style([
 ]);
 
 export const symbol = style([
-  sprinkles({
+  atoms({
     display: 'flex',
-    placeItems: 'center',
+    alignItems: 'center',
   }),
   {
     height: vars.space.medium,
@@ -35,7 +35,7 @@ export const symbol = style([
 
 export const inputRecipe = recipe({
   base: [
-    sprinkles({
+    atoms({
       background: 'gray-060',
     }), {
       width: '100%',

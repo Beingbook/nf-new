@@ -1,9 +1,10 @@
 import React from 'react';
 import { ComponentMeta } from '@storybook/react';
 
-import { Box, atoms } from './Box';
+import { Box } from './Box';
 import { namedColors as colors } from '../../theme/color-util';
-import { spaces } from '../../theme';
+import { spaces, atoms } from '../../theme';
+import { overloadRecipe, overloadStyle } from './Box.stories.css';
 
 const props = Array.from(atoms.properties);
 
@@ -35,4 +36,34 @@ export default {
   },
 } as ComponentMeta<typeof Box>;
 
-export const WithArgs = (args: any) => <Box {...args}>Content</Box>;
+export const WithArgs = (args: any) => <Box {...args}>Welcome to the box! Box can be used to abstract certain often-used style properties.</Box>;
+
+export const BasicUsage = () => <Box p={1} color="blue" background="gray-060">Hello, world!</Box>;
+
+/**
+ * Combining sprinkles and a recipe can be useful.
+ */
+export const StyleRecipe = () => {
+  const className = overloadRecipe();
+  return <Box p={1} color="blue" background="gray-060" className={className}>Hello, world!</Box>;
+};
+
+/**
+ * Using sprinkles like this is unnecessary for Box, you can just pass the properties to the Box component.
+ * But this is can be a useful example for other components.
+ */
+export const StyleAtoms = () => {
+  const className = atoms({
+    display: 'flex',
+    justifyContent: 'center',
+    padding: 'medium',
+  });
+  return <Box p={1} color="blue" background="gray-060" className={className}>Hello, world!</Box>;
+};
+
+/**
+ * Setting custom styles manually is also possible.
+ */
+export const StyleCustom = () => {
+  return <Box p={1} color="blue" background="gray-060" className={overloadStyle}>Hello, world!</Box>;
+};

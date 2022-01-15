@@ -1,18 +1,20 @@
 import { createVar } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { sprinkles, vars } from '../../theme';
+import { atoms, vars } from '../../theme';
+import { scalePx } from '../../theme/scale';
 
 export const buttonColor = createVar();
 
 export const buttonRecipe = recipe({
-  base: [sprinkles({
+  base: [atoms({
     display: 'inline-flex',
   }),
   {
     background: 'transparent',
     border: 0,
     borderRadius: 2,
+    padding: '0 1em',
     cursor: 'pointer',
     ':hover': {
       outline: '1px solid currentColor',
@@ -25,12 +27,12 @@ export const buttonRecipe = recipe({
 
   variants: {
     size: {
-      s: { lineHeight: '24px', padding: '0 8px' },
-      m: { lineHeight: '32px', padding: '0 10px' },
-      l: { lineHeight: '40px', padding: '0 12px' },
+      s: { lineHeight: scalePx(3), fontSize: '10px' },
+      m: { lineHeight: scalePx(4), fontSize: '12px' },
+      l: { lineHeight: scalePx(5), fontSize: '14px' },
     },
     variant: {
-      stroke: { boxShadow: `inset 0 0 1px 1px ${buttonColor}` },
+      stroke: { boxShadow: `inset 0 0 0 1px ${buttonColor}` },
       'strong-fill': { backgroundColor: buttonColor, color: '#fff' },
     },
   },

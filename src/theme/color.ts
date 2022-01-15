@@ -21,7 +21,7 @@ export function getColor<C extends Color>(color: C, weight?: ColorWeights<C>): s
   if (color in vars.color) {
     return vars.color[color as NamedColorWeight];
   }
-  if (color.startsWith('#')) {
+  if (color && color.startsWith('#')) {
     return color;
   }
   throw new Error('undefined color');
