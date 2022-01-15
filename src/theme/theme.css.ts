@@ -1,12 +1,13 @@
 import { createTheme } from '@vanilla-extract/css';
 
 import { colorMap, namedColorMap } from './color-util';
+import { scalePx } from './scale';
 
 const space = {
-  'none': '0px',
-  'small': '4px',
-  'medium': '8px',
-  'large': '16px',
+  'none': scalePx(0),
+  'small': scalePx(1),
+  'medium': scalePx(2),
+  'large': scalePx(4),
 };
 
 export const spaces = Object.keys(space) as (keyof typeof space)[];

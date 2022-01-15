@@ -7,7 +7,7 @@ import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { getColor, NamedColor } from '../../theme';
 import { buttonColor, buttonRecipe, Variants } from './styles.css';
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & Variants & {
+type Props = React.ComponentProps<typeof RKButton> & Variants & {
   color: NamedColor;
 };
 

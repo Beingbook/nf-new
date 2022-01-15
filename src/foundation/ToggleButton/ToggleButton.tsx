@@ -7,7 +7,7 @@ import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { getColor, NamedColor } from '../../theme';
 import { buttonColor, toggleButtonRecipe, Variants } from './styles.css';
 
-type Props = React.ComponentProps<typeof Checkbox> & Variants & {
+type Props = Omit<React.ComponentProps<typeof Checkbox>, keyof Variants> & Variants & {
   color: NamedColor;
 };
 

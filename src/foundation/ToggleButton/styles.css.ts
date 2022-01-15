@@ -3,6 +3,7 @@ import { createVar } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 import { sprinkles, vars } from '../../theme';
+import { scale } from '../../theme/scale';
 
 export const buttonColor = createVar();
 
@@ -12,6 +13,7 @@ export const toggleButtonRecipe = recipe({
   }),
   {
     background: 'transparent',
+    WebkitAppearance: 'none',
     appearance: 'none',
     border: 0,
     borderRadius: '1em',
@@ -54,9 +56,10 @@ export const toggleButtonRecipe = recipe({
 
   variants: {
     size: {
-      s: { fontSize: '16px' },
-      m: { fontSize: '20px' },
-      l: { fontSize: '24px' },
+      xs: { fontSize: scale(3) },
+      s: { fontSize: scale(4) },
+      m: { fontSize: scale(5) },
+      l: { fontSize: scale(6) },
     },
     variant: {
       stroke: { boxShadow: `inset 0 0 1px 1px ${buttonColor}`, ':before': { backgroundColor: buttonColor } },
