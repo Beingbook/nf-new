@@ -117,3 +117,12 @@ export const ScrollOverlay = () => {
     </Box>
   </Box>;
 };
+
+export const Sticky = () => {
+  return <Box overflow="overlay" position="relative" border="1px solid transparent" borderColor="gray-100" style={{ height: 200 }}>
+    <Box backgroundColor="blue-050" p={1} position="sticky" top="0">
+      Scroll me
+    </Box>
+    <Box p={1} style={{ height: 400 }}></Box>
+  </Box>;
+};

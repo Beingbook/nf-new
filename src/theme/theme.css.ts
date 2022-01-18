@@ -1,4 +1,4 @@
-import { createTheme } from '@vanilla-extract/css';
+import { createTheme, globalStyle } from '@vanilla-extract/css';
 
 import { colorMap, namedColorMap } from './color-util';
 import { space } from './space';
@@ -9,3 +9,7 @@ export const [themeClass, vars] = createTheme({
   space,
 });
 
+globalStyle('body', {
+  fontFamily: 'sans-serif',
+  WebkitFontSmoothing: 'antialiased',
+});

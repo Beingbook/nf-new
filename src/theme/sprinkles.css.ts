@@ -16,6 +16,12 @@ const spaceProperties = [
   'gap', 'rowGap', 'columnGap',
 ] as const;
 
+const sizeProperties = [
+  'width', 'maxWidth',
+  'height', 'maxHeight',
+  'left', 'top', 'right', 'bottom',
+] as const;
+
 const layoutStyles = defineProperties({
   properties: {
     display: ['none', 'flex', 'grid', 'block', 'inline', 'inline-flex'],
@@ -27,7 +33,7 @@ const layoutStyles = defineProperties({
     placeItems: ['center'],
     textAlign: ['center', 'right'],
     boxSizing: ['border-box'],
-    position: ['absolute', 'relative', 'fixed'],
+    position: ['absolute', 'relative', 'fixed', 'sticky'],
     scrollbarGutter: ['stable'],
     overflow: {
       hidden: 'hidden',
@@ -41,6 +47,7 @@ const layoutStyles = defineProperties({
       },
     },
     ...mapTo(spaceProperties, { ...vars.space, auto: 'auto', full: '100%' }),
+    ...mapTo(sizeProperties, ['0', '0%', '50%', '100%', 'auto', '100vh', '100vw']),
   },
   shorthands: {
     p: ['padding'],
@@ -56,6 +63,7 @@ const decorationStyles = defineProperties({
   properties: {
     ...mapTo(['border', 'borderLeft', 'borderRight', 'borderTop', 'borderBottom'], ['1px solid', '1px solid transparent']),
     borderRadius: ['2px', '4px', '9999px', '100%'],
+    borderCollapse: ['collapse'],
     cursor: ['pointer'],
   },
   shorthands: {
