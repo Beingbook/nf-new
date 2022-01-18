@@ -31,6 +31,10 @@ export const AsParagraph = () => {
   </>;
 };
 
+export const PargraphWithBoxStyles = () => {
+  return <Paragraph variant="body2" p={2} color="blue" backgroundColor="gray-060">You can use<br />a lot of Box styles.</Paragraph>;
+};
+
 WithArgs.args = {
   color: 'blue',
   variant: 'headline2',

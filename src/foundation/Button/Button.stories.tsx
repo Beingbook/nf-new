@@ -1,4 +1,3 @@
-import { namedColors } from '../../theme';
 import { Button } from './Button';
 
 export default {

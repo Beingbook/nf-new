@@ -2,31 +2,21 @@ import React from 'react';
 
 import { mergeProps } from '@react-aria/utils';
 
-import { atoms, Color } from '../../theme';
 import { Box } from '../Box/Box';
 import { typoRecipe, Variants } from './styles.css';
 
-type TypoProps = Variants & { color?: Color };
-type Props = Omit<React.ComponentProps<'span'>, 'color'> & TypoProps;
-type ParagraphProps = Omit<React.ComponentProps<typeof Box>, 'color'> & TypoProps;
+type Props = React.ComponentProps<typeof Box> & Variants;
 
-function getProps({ variant, color }: Props) {
-  return mergeProps(
-    { className: typoRecipe({ variant }) },
-    color ? { className: atoms({ color }) } : {},
-  );
+/**
+ * Typography is a `<span>` with a variant and support for all props from Box
+ */
+export function Typography({ variant, ...props }: Props) {
+  return <Box as="span" {...mergeProps(props, { className: typoRecipe({ variant }) })} />;
 }
 
 /**
- * Typography is for text. It's a `<span>` with typo-related styling.
+ * Paragraph is a `<p>` with a variant and support for all props from Box
  */
-export function Typography({ variant, color, ...props }: Props) {
-  return <span {...mergeProps(props, getProps({ variant, color }))} />;
-}
-
-/**
- * Paragraph supports all props from Box and Typography
- */
-export function Paragraph({ color, variant, ...props }: ParagraphProps) {
-  return <Box as="p" {...mergeProps(props, getProps({ variant, color }))} />;
+export function Paragraph({ variant, ...props }: Props) {
+  return <Box as="p" {...mergeProps(props, { className: typoRecipe({ variant }) })} />;
 }
