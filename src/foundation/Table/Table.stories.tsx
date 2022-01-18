@@ -4,6 +4,11 @@ import { Table, Row, Cell, Head, Body, Caption, Footer } from './Table';
 export default {
   title: 'Foundation/Table',
   component: Table,
+  parameters: {
+    controls: {
+      include: ['variant'],
+    },
+  },
 };
 
 export const BasicUsage = (args: any) => <Table {...args}>

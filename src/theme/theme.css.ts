@@ -11,6 +11,12 @@ export const [themeClass, vars] = createTheme({
 });
 
 globalStyle('body', {
-  fontFamily: 'sans-serif',
+  fontFamily: 'Inter, sans-serif',
   WebkitFontSmoothing: 'antialiased',
+});
+
+globalStyle('*, *::after, *::before', {
+  margin: 0,
+  padding: 0,
+  boxSizing: 'inherit',
 });
