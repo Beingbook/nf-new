@@ -3,7 +3,7 @@ import React, { ComponentProps } from 'react';
 import { mergeProps } from '@react-aria/utils';
 
 import { atoms } from '../../theme';
-import { tableRecipe, Variants } from './styles.css';
+import { captionRecipe, tableRecipe, Variants } from './styles.css';
 
 type TableProps = ComponentProps<'table'> & Variants;
 
@@ -34,4 +34,9 @@ export function Row({ sticky, ...props }: ComponentProps<'tr'> & { sticky?: bool
 export function Cell({ head = false, ...props }: ComponentProps<'td'> & { head?: boolean }) {
   if (head) return <th {...props} />;
   return <td {...props} />;
+}
+
+export function Caption({ side = 'top', ...props }: { side?: 'top' | 'bottom' } & ComponentProps<'caption'>) {
+  const className = captionRecipe({ side });
+  return <caption {...mergeProps({ className }, props)} />;
 }

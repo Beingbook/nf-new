@@ -8,28 +8,37 @@ const baseStyle = style({
   lineHeight: 1.5,
 });
 
-globalStyle(`${baseStyle} th`, {
-  textAlign: 'left',
+globalStyle(`${baseStyle} thead th, ${baseStyle} tfoot td`, {
+  textAlign: 'inherit',
   padding: '8px 32px',
   fontWeight: 'normal',
+});
+globalStyle(`${baseStyle} thead th[align=right], ${baseStyle} tfoot td[align=right]`, {
+  textAlign: 'right',
 });
 globalStyle(`${baseStyle} td`, {
   padding: '16px 32px',
 });
+globalStyle(`${baseStyle} caption`, {
+  fontSize: '14px',
+  fontWeight: 'medium',
+  padding: '16px 32px',
+  textAlign: 'left',
+});
 
 const tableVariants = styleVariants({
-  default: {
-
-  },
   simple: {
 
   },
 });
 
 globalStyle(`${tableVariants.simple} thead, ${tableVariants.simple} tfoot`, {
-  fontSize: '10px',
   color: vars.color['gray-800'],
   backgroundColor: vars.color['gray-050'],
+});
+
+globalStyle(`${tableVariants.simple} thead`, {
+  fontSize: '10px',
 });
 
 export const tableRecipe = recipe({
@@ -44,9 +53,32 @@ export const tableRecipe = recipe({
   variants: {
     variant: tableVariants,
   },
-  defaultVariants: {
-    variant: 'default',
-  },
 });
 
 export type Variants = RecipeVariants<typeof tableRecipe>;
+
+export const captionRecipe = recipe({
+  base: [
+    {
+      fontSize: '14px',
+      fontWeight: 500,
+      padding: '16px 32px',
+      textAlign: 'left',
+    },
+  ],
+  variants: {
+    side: {
+      top: {
+        captionSide: 'top',
+        borderBottom: `1px solid ${vars.color['gray-080']}`,
+      },
+      bottom: {
+        captionSide: 'bottom',
+        borderTop: `1px solid ${vars.color['gray-080']}`,
+      },
+    },
+  },
+  defaultVariants: {
+    side: 'top',
+  },
+});

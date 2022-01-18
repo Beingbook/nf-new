@@ -1,6 +1,7 @@
 import { ColorWeightMap, NamedColor, namedColors, NamedColorWeight } from './color-util';
 import { vars } from './theme.css';
-export { NamedColor, namedColors, NamedColorWeight };
+export { namedColors };
+export type { NamedColor, NamedColorWeight };
 
 type ColorWeights<C extends Color> = C extends NamedColor ? ColorWeightMap[C] : never;
 type RgbColor = `#${string}`;
