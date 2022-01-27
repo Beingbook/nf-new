@@ -13,6 +13,26 @@ function LabelValue({ label, value, valueVariant = 'body2' }: { label: string; v
   </Box >;
 }
 
+function InvoiceTable() {
+  return <Table>
+    <Caption>Invoices</Caption>
+    <Body>
+      <Row>
+        <Cell>Not Paid</Cell>
+        <Cell>Oct 14, 2020 ~ Oct 14, 2020</Cell>
+        <Cell>$ 125,000</Cell>
+        <Cell align="right"><Button>View Details</Button></Cell>
+      </Row>
+      <Row>
+        <Cell>Not Paid</Cell>
+        <Cell>Oct 14, 2020 ~ Oct 14, 2020</Cell>
+        <Cell>$ 125,000</Cell>
+        <Cell align="right"><Button>View Details</Button></Cell>
+      </Row>
+    </Body>
+  </Table>;
+}
+
 export default function Home() {
   return (
     <>
@@ -22,7 +42,7 @@ export default function Home() {
       </Head>
 
       <Box p={2} mx="auto" display="flex" flexDirection="column" gap={2} className={pageContainer}>
-        <Box p={2} borderRadius="2px" display="flex" alignItems="center" className={card}>
+        <Box p={2} display="flex" alignItems="center" className={card}>
           <Box marginLeft={1}>
             <Typography variant="headline4">
               <Typography color="red">Enterprise</Typography>
@@ -37,7 +57,7 @@ export default function Home() {
             <Button variant="strong-fill" color="red" size="l">Change Plan</Button>
           </Box>
         </Box>
-        <Box p={3} borderRadius="2px" className={card}>
+        <Box p={3} className={card}>
           <Box display="grid" gap={3} className={usageGrid}>
             <Box borderRight="2px solid" borderColor="gray-060" paddingRight={3}>
               <LabelValue label="Data Storage" value="158,998 / 500,000" valueVariant="body3" />
@@ -50,24 +70,8 @@ export default function Home() {
             </Box>
           </Box>
         </Box>
-        <Box borderRadius="2px" className={card}>
-          <Table>
-            <Caption>Invoices</Caption>
-            <Body>
-              <Row>
-                <Cell>Not Paid</Cell>
-                <Cell>Oct 14, 2020 ~ Oct 14, 2020</Cell>
-                <Cell>$ 125,000</Cell>
-                <Cell align="right"><Button>View Details</Button></Cell>
-              </Row>
-              <Row>
-                <Cell>Not Paid</Cell>
-                <Cell>Oct 14, 2020 ~ Oct 14, 2020</Cell>
-                <Cell>$ 125,000</Cell>
-                <Cell align="right"><Button>View Details</Button></Cell>
-              </Row>
-            </Body>
-          </Table>
+        <Box className={card}>
+          <InvoiceTable />
         </Box>
       </Box>
     </>
