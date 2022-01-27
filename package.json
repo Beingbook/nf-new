@@ -1,7 +1,6 @@
 {
   "name": "superb-ai-ui",
   "version": "1.0.0",
-  "license": "",
   "private": true,
   "workspaces": [
     "packages/*"
