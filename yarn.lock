@@ -1218,6 +1218,18 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@dessert-box/core@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@dessert-box/core/-/core-0.1.0.tgz#7638879c46727857706c14aca3f29c192ae9fa3a"
+  integrity sha512-fvRzEITijU6oE55sDNgKwnLz72gD75y6kwYN4iiBcHces0yoWyiYREJ1JptaESSQDi/9l9sn7o8TAckUM0xhjA==
+
+"@dessert-box/react@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@dessert-box/react/-/react-0.2.0.tgz#6b5814a474455751266f71fb088c219c9ca8da1a"
+  integrity sha512-usfddolEE1e8oCrFd3qosMqnh3b/HJTRRHhEFs0oUiRM8Qg5PAGfpXXMlaPxEEA1CbSMAIQfAo5DRDC9qQ6cKg==
+  dependencies:
+    "@dessert-box/core" "^0.1.0"
+
 "@discoveryjs/json-ext@^0.5.3":
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
@@ -5124,11 +5136,6 @@ des.js@^1.0.0:
   dependencies:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
-
-dessert-box@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/dessert-box/-/dessert-box-0.4.1.tgz#5cf711741a086cbd63f86d1a00e7438ea0dc1d89"
-  integrity sha512-8EtTlSmVlUiuSK1qOIBbZh6Nq0tW1yOfX1DGMtSbzeTzm5jtV2sJ+kyYYL3otNTRSVpki0JWRF/hanPQb0iCDQ==
 
 destroy@~1.0.4:
   version "1.0.4"
