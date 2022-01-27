@@ -1,4 +1,4 @@
-import { Box } from '../Box/Box';
+import { Box } from '../../foundation/Box/Box';
 import { Table, Row, Cell, Head, Body, Caption, Footer } from './Table';
 
 export default {
