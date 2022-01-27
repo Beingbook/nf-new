@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Button, ToggleButton } from '@superb-ai/ui';
 import Head from 'next/head';
 
-
 export default function Home() {
   const [isToggled, setIsToggled] = useState(false);
 
