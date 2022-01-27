@@ -12,8 +12,9 @@ This does NOT use Babel.
 
 ## Use
 
-    import 'package-name/dist/index.css';
-    import { Box } from 'package-name'
+    import '@superb-ai/ui/dist/index.css';
+    import { Box } from '@superb-ai/ui'
+
 ## Storybook
 
     yarn storybook

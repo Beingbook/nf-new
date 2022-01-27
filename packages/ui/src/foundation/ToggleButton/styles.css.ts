@@ -23,7 +23,7 @@ export const toggleButtonRecipe = recipe({
     margin: 0,
     cursor: 'pointer',
     position: 'relative',
-    flex: 'flex: 0 0 1.8333333em',
+    flex: '0 0 1.8333333em',
     opacity: '0.9',
     selectors: {
       '&:before': {

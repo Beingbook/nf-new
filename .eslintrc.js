@@ -13,6 +13,7 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:react/jsx-runtime",
   ],
   parserOptions: {
     ecmaVersion: 2018,

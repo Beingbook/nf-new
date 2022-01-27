@@ -19,5 +19,5 @@
     "downlevelIteration": true,
     "resolveJsonModule": true
   },
-  "include": ["src", ".storybook"]
+  "include": ["**/src", "**/pages", "**/.storybook"]
 }

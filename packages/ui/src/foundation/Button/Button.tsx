@@ -8,12 +8,12 @@ import { getColor, NamedColor } from '../../theme';
 import { buttonColor, buttonRecipe, Variants } from './styles.css';
 
 type Props = React.ComponentProps<typeof RKButton> & Variants & {
-  color: NamedColor;
+  color?: NamedColor;
 };
 
 export function getButtonProps({ color, size, variant, ...props }: Props) {
   const className = buttonRecipe({ size, variant });
-  const style = assignInlineVars({ [buttonColor]: getColor(color) });
+  const style = color ? assignInlineVars({ [buttonColor]: getColor(color) }) : {};
   return mergeProps(props, { className, style });
 }
 

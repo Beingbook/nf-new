@@ -20,8 +20,8 @@ jobs:
           node-version: "14"
           cache: "yarn"
       - run: yarn install --prefer-offline --frozen-lockfile
-      - run: yarn test:types
-      - run: yarn lint --quiet
+      - run: cd packages/ui && yarn test:types
+      - run: cd packages/ui && yarn lint --quiet
 
   test:
     runs-on: ubuntu-latest
@@ -32,4 +32,4 @@ jobs:
           node-version: "14"
           cache: "yarn"
       - run: yarn install --prefer-offline --frozen-lockfile
-      - run: yarn test
+      - run: cd packages/ui && yarn test
