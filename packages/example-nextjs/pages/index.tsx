@@ -8,7 +8,7 @@ export default function Home() {
   const [isToggled, setIsToggled] = useState(false);
 
   return (
-    <div className="container">
+    <>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -17,6 +17,6 @@ export default function Home() {
       <p>Hello world.</p>
       <p><Button color="red">Click me!</Button></p>
       <p><ToggleButton color="red" checked={isToggled} onClick={() => setIsToggled(!isToggled)} /> toggle me!</p>
-    </div>
+    </>
   );
 }
