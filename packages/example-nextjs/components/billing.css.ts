@@ -12,6 +12,12 @@ export const card = style([
   },
 ]);
 
-export const usageGrid = style({
-  gridTemplateColumns: '1fr 1fr 1fr',
-});
+export const usageGrid = style([
+  atoms({
+    display: 'grid',
+    gap: 3,
+  }),
+  {
+    gridTemplateColumns: '1fr 1fr 1fr',
+  },
+]);

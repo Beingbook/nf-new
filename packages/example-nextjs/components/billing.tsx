@@ -1,10 +1,12 @@
 
 import { ComponentProps } from 'react';
 
-import { Body, Box, Button, Caption, Cell, Row, Table, Typography } from '@superb-ai/ui';
+import { Body, Box, Button, Caption, Cell, Row, styled, Table, Typography } from '@superb-ai/ui';
 
 import { card, pageContainer, usageGrid } from './billing.css';
 
+const Card = styled(Box, card);
+const UsageGrid = styled(Box, usageGrid);
 
 function LabelValue({ label, value, valueVariant = 'body2' }: { label: string; value: string; valueVariant?: ComponentProps<typeof Typography>['variant'] }) {
   return <Box display="flex" alignItems="baseline" justifyContent="space-between" gap={1} >
@@ -35,7 +37,7 @@ function InvoiceTable() {
 
 export function BillingPage() {
   return <Box p={2} mx="auto" display="flex" flexDirection="column" gap={2} className={pageContainer}>
-    <Box p={2} display="flex" alignItems="center" className={card}>
+    <Card p={2} display="flex" alignItems="center">
       <Box marginLeft={1}>
         <Typography variant="headline4">
           <Typography color="red">Enterprise</Typography>
@@ -49,9 +51,9 @@ export function BillingPage() {
         </Box>
         <Button variant="strong-fill" color="red" size="l">Change Plan</Button>
       </Box>
-    </Box>
-    <Box p={3} className={card}>
-      <Box display="grid" gap={3} className={usageGrid}>
+    </Card>
+    <Card p={3}>
+      <UsageGrid>
         <Box borderRight="2px solid" borderColor="gray-060" paddingRight={3}>
           <LabelValue label="Data Storage" value="158,998 / 500,000" valueVariant="body3" />
         </Box>
@@ -61,10 +63,10 @@ export function BillingPage() {
         <Box>
           <LabelValue label="Auto-Label" value="260 / 500,000" valueVariant="body3" />
         </Box>
-      </Box>
-    </Box>
-    <Box className={card}>
+      </UsageGrid>
+    </Card>
+    <Card>
       <InvoiceTable />
-    </Box>
+    </Card>
   </Box>;
 }
