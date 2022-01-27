@@ -10,20 +10,14 @@ const baseStyle = style({
 
 globalStyle(`${baseStyle} thead th, ${baseStyle} tfoot td`, {
   textAlign: 'inherit',
-  padding: '8px 32px',
+  padding: '8px 24px',
   fontWeight: 'normal',
 });
 globalStyle(`${baseStyle} thead th[align=right], ${baseStyle} tfoot td[align=right]`, {
   textAlign: 'right',
 });
 globalStyle(`${baseStyle} td`, {
-  padding: '16px 32px',
-});
-globalStyle(`${baseStyle} caption`, {
-  fontSize: '14px',
-  fontWeight: 'medium',
-  padding: '16px 32px',
-  textAlign: 'left',
+  padding: '16px 24px',
 });
 
 const tableVariants = styleVariants({
@@ -62,7 +56,7 @@ export const captionRecipe = recipe({
     {
       fontSize: '14px',
       fontWeight: 500,
-      padding: '16px 32px',
+      padding: '16px 24px',
       textAlign: 'left',
     },
   ],
