@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { mergeProps } from '@react-aria/utils';
 
@@ -10,13 +10,13 @@ type Props = React.ComponentProps<typeof Box> & Variants;
 /**
  * Typography is a `<span>` with a variant and support for all props from Box
  */
-export function Typography({ variant, ...props }: Props) {
-  return <Box as="span" {...mergeProps(props, { className: typoRecipe({ variant }) })} />;
-}
+export const Typography = forwardRef(function Typography({ variant, ...props }: Props, ref) {
+  return <Box as="span" {...mergeProps(props, { ref, className: typoRecipe({ variant }) })} />;
+});
 
 /**
  * Paragraph is a `<p>` with a variant and support for all props from Box
  */
-export function Paragraph({ variant, ...props }: Props) {
-  return <Box as="p" {...mergeProps(props, { className: typoRecipe({ variant }) })} />;
-}
+export const Paragraph = forwardRef(function Paragraph({ variant, ...props }: Props, ref) {
+  return <Box as="p" {...mergeProps(props, { ref, className: typoRecipe({ variant }) })} />;
+});

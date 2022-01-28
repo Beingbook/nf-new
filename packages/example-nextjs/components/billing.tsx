@@ -6,7 +6,9 @@ import { Body, Box, Button, Caption, Cell, Row, styled, Table, Typography } from
 import { card, pageContainer, usageGrid } from './billing.css';
 
 const Card = styled(Box, card);
+Card.displayName = 'Card';
 const UsageGrid = styled(Box, usageGrid);
+UsageGrid.displayName = 'UsageGrid';
 
 function LabelValue({ label, value, valueVariant = 'body2' }: { label: string; value: string; valueVariant?: ComponentProps<typeof Typography>['variant'] }) {
   return <Box display="flex" alignItems="baseline" justifyContent="space-between" gap={1} >
