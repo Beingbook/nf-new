@@ -22,12 +22,12 @@ export const typoVariants = styleVariants({
   body5: { fontSize: 10, lineHeight: 1.5 },
   body6: { fontSize: 8, lineHeight: 1.5 },
 
-  bold1: { fontSize: 16, lineHeight: 1.5, fontWeight: 600 },
-  bold2: { fontSize: 14, lineHeight: 1.5, fontWeight: 600 },
-  bold3: { fontSize: 12, lineHeight: 1.5, fontWeight: 600 },
-  bold4: { fontSize: 11, lineHeight: 1.5, fontWeight: 600 },
-  bold5: { fontSize: 10, lineHeight: 1.5, fontWeight: 600 },
-  bold6: { fontSize: 8, lineHeight: 1.5, fontWeight: 600 },
+  bold1: { fontSize: 16, lineHeight: 1.5, fontWeight: 500 },
+  bold2: { fontSize: 14, lineHeight: 1.5, fontWeight: 500 },
+  bold3: { fontSize: 12, lineHeight: 1.5, fontWeight: 500 },
+  bold4: { fontSize: 11, lineHeight: 1.5, fontWeight: 500 },
+  bold5: { fontSize: 10, lineHeight: 1.5, fontWeight: 500 },
+  bold6: { fontSize: 8, lineHeight: 1.5, fontWeight: 500 },
 
   headline1: { ...capSize(48, 56), fontWeight: 600 },
   headline2: { ...capSize(36, 40), fontWeight: 600 },
