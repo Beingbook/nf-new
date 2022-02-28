@@ -1,42 +1,24 @@
-import React, { ComponentProps } from 'react';
-
-import { mergeProps } from '@react-aria/utils';
+import { ComponentProps } from 'react';
 
 import { atoms } from '../../theme';
+import { styled } from '../../util/styled';
 import { captionRecipe, tableRecipe, Variants } from './styles.css';
 
-type TableProps = ComponentProps<'table'> & Variants;
+const stickyTop = ({ sticky }: { sticky?: boolean }) => sticky ? atoms({ position: 'sticky', top: '0', backgroundColor: 'white' }) : '';
+const stickyBottom = ({ sticky }: { sticky?: boolean }) => sticky ? atoms({ position: 'sticky', bottom: '0', backgroundColor: 'white' }) : '';
 
-export function Table({ variant, ...props }: TableProps) {
-  const className = tableRecipe({ variant });
-  return <table {...mergeProps({ className }, props)} />;
-}
+export const Table = styled('table', ({ variant }: ComponentProps<'table'> & Variants) => tableRecipe({ variant }));
 
-export function Head({ sticky, ...props }: ComponentProps<'thead'> & { sticky?: boolean }) {
-  const className = sticky ? atoms({ position: 'sticky', top: '0', backgroundColor: 'white' }) : '';
-  return <thead {...mergeProps({ className }, props)} />;
-}
+export const Head = styled('thead', stickyTop);
 
-export function Body(props: ComponentProps<'tbody'>) {
-  return <tbody {...props} />;
-}
+export const Body = styled('tbody');
 
-export function Footer({ sticky, ...props }: ComponentProps<'tfoot'> & { sticky?: boolean }) {
-  const className = sticky ? atoms({ position: 'sticky', bottom: '0', backgroundColor: 'white' }) : '';
-  return <tfoot {...mergeProps({ className }, props)} />;
-}
+export const Footer = styled('tfoot', stickyBottom);
 
-export function Row({ sticky, ...props }: ComponentProps<'tr'> & { sticky?: boolean }) {
-  const className = sticky ? atoms({ position: 'sticky', top: '0', backgroundColor: 'white' }) : '';
-  return <tr {...mergeProps({ className }, props)} />;
-}
+export const Row = styled('tr', stickyTop);
 
-export function Cell({ head = false, ...props }: ComponentProps<'td'> & { head?: boolean }) {
-  if (head) return <th {...props} />;
-  return <td {...props} />;
-}
+export const Cell = styled('td');
 
-export function Caption({ side = 'top', ...props }: { side?: 'top' | 'bottom' } & ComponentProps<'caption'>) {
-  const className = captionRecipe({ side });
-  return <caption {...mergeProps({ className }, props)} />;
-}
+export const HeadCell = styled('th');
+
+export const Caption = styled('caption', ({ side }: ComponentProps<'caption'> & { side?: 'top' | 'bottom' }) => captionRecipe({ side }));

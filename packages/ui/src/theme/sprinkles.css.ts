@@ -29,7 +29,7 @@ const layoutStyles = defineProperties({
     flexDirection: ['row', 'column'],
     flexWrap: ['wrap'],
     justifyContent: ['stretch', 'flex-start', 'center', 'flex-end', 'space-around', 'space-between'],
-    alignItems: ['stretch', 'flex-start', 'center', 'flex-end'],
+    alignItems: ['stretch', 'flex-start', 'center', 'flex-end', 'baseline'],
     placeItems: ['center'],
     textAlign: ['center', 'right'],
     boxSizing: ['border-box'],
@@ -61,7 +61,7 @@ const layoutStyles = defineProperties({
 
 const decorationStyles = defineProperties({
   properties: {
-    ...mapTo(['border', 'borderLeft', 'borderRight', 'borderTop', 'borderBottom'], ['1px solid', '1px solid transparent']),
+    ...mapTo(['border', 'borderLeft', 'borderRight', 'borderTop', 'borderBottom'], ['1px solid', '2px solid', '1px solid transparent']),
     borderRadius: ['2px', '4px', '9999px', '100%'],
     borderCollapse: ['collapse'],
     cursor: ['pointer'],
